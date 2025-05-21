@@ -115,5 +115,12 @@
   "search.collapseResults": "alwaysCollapse",
   "prisma.showPrismaDataPlatformNotification": false,
   "remote.autoForwardPortsSource": "hybrid",
-  "redhat.telemetry.enabled": true
+  "redhat.telemetry.enabled": true,
+
+  // AI
+  "mcp": {
+    "servers": {}
+  },
+  "chat.agent.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true
 }
