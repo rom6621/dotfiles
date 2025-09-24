@@ -3,9 +3,14 @@ export LANG=ja_JP
 # vimコマンドでneovimが起動するようエイリアスを設定
 alias vim="nvim"
 
-# Volta (Node.js) の設定
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# Golang
+export GOROOT=$(go1.25.1 env GOROOT)
+export PATH=$GOROOT/bin:$PATH
+
+# Node.js
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
@@ -53,3 +58,5 @@ zinit light zsh-users/zsh-completions
 # Load the pure theme, with zsh-async library that's bundled with it.
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
+
+alias claude="/Users/rom/.claude/local/claude"
