@@ -18,3 +18,8 @@ cd ~/$HOME && git clone https://github.com/rom6621/dotfiles.git
 ```bash
 ln -s ~/dofiles/.zshrc ~
 ```
+
+3. `nvim`のシンボリックリンクを貼る
+```bash
+ln -s ~/dotfiles/nvim ~/.config
+```
