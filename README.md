@@ -23,3 +23,8 @@ ln -s ~/dofiles/.zshrc ~
 ```bash
 ln -s ~/dotfiles/nvim ~/.config
 ```
+4. `tmux`のシンボリックリンクを貼る
+```bash
+ln -s ~/dotfiles/tmux ~/.config
+```
+
