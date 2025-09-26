@@ -1,4 +1,5 @@
-export LANG=ja_JP
+export LANG=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
 
 # vimコマンドでneovimが起動するようエイリアスを設定
 alias vim="nvim"
