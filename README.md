@@ -28,3 +28,5 @@ ln -s ~/dotfiles/nvim ~/.config
 ln -s ~/dotfiles/tmux ~/.config
 ```
 
+5. tmuxを開き`prefix`+`I`でプラグインをインストール
+
