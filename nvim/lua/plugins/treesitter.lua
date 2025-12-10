@@ -17,6 +17,7 @@ return {
 				"html",
 				"javascript",
 				"typescript",
+				"tsx",
 				"go",
 				"terraform",
 			},
