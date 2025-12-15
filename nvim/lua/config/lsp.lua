@@ -19,6 +19,26 @@ vim.lsp.config('vtsls', {
   cmd = { 'vtsls', '--stdio' },
   filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
   root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
+  settings = {
+    typescript = {
+      preferences = {
+        importModuleSpecifier = 'relative',
+        quoteStyle = 'single',
+      },
+      updateImportsOnFileMove = {
+        enabled = 'always',
+      },
+    },
+    javascript = {
+      preferences = {
+        importModuleSpecifier = 'relative',
+        quoteStyle = 'single',
+      },
+      updateImportsOnFileMove = {
+        enabled = 'always',
+      },
+    },
+  },
 })
 
 -- LSPを有効化
@@ -39,6 +59,41 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", "<leader>k",
         function() vim.lsp.buf.hover({ border = "single" }) end,
         { buffer = buf, desc = "Show hover documentation" })
+    end
+
+    if client:supports_method("textDocument/codeAction") then
+      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action,
+        { buffer = buf, desc = "Code action" })
+    end
+
+    if client:supports_method("textDocument/rename") then
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename,
+        { buffer = buf, desc = "Rename symbol" })
+    end
+
+    -- Diagnostics (エラー・警告の表示)
+    vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float,
+      { buffer = buf, desc = "Show diagnostic" })
+    vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist,
+      { buffer = buf, desc = "Show diagnostic list" })
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next,
+      { buffer = buf, desc = "Next diagnostic" })
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev,
+      { buffer = buf, desc = "Previous diagnostic" })
+
+    -- Organize imports on save for TypeScript/JavaScript
+    if client.name == "vtsls" then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = vim.api.nvim_create_augroup("my.lsp.organize_imports", { clear = false }),
+        buffer = buf,
+        callback = function()
+          local params = {
+            command = "_typescript.organizeImports",
+            arguments = { vim.api.nvim_buf_get_name(0) },
+          }
+          vim.lsp.buf.execute_command(params)
+        end,
+      })
     end
 
     -- Auto-format ("lint") on save.
