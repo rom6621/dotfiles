@@ -14,35 +14,19 @@
 
 ## 初期化方法
 
-1. `$HOME/dotfiles`に本リポジトリを Clone する
+1. リポジトリをクローン
 
 ```bash
-cd ~/$HOME && git clone https://github.com/rom6621/dotfiles.git
+cd ~ && git clone https://github.com/rom6621/dotfiles.git
+cd dotfiles
 ```
 
-2. `.zshrc`のシンボリックリンクを貼る
+2. インストールスクリプトを実行（Goが必要）
 
 ```bash
-ln -s ~/dofiles/.zshrc ~
+go run install.go
 ```
 
-3. `nvim`のシンボリックリンクを貼る
-```bash
-ln -s ~/dotfiles/nvim ~/.config
-```
-4. `tmux`のシンボリックリンクを貼る
-```bash
-ln -s ~/dotfiles/tmux ~/.config
-```
+3. ターミナルを再起動または`source ~/.zshrc`を実行
 
-5. `mise`のシンボリックリンクを貼る
-```bash
-ln -s ~/dotfiles/mise ~/.config
-```
-
-6. miseでツールをインストール
-```bash
-mise install
-```
-
-7. tmuxを開き`prefix`+`I`でプラグインをインストール
+4. tmuxを開き`Prefix + I`でプラグインをインストール
