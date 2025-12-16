@@ -16,10 +16,28 @@ return {
         html = { "prettier" },
         markdown = { "prettier" },
       },
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
+      format_on_save = function(bufnr)
+        -- プロジェクトルートでbiome.json/biome.jsoncを探す
+        local root = vim.fs.root(bufnr, { 'biome.json', 'biome.jsonc', 'package.json', '.git' })
+        local has_biome = false
+
+        if root then
+          has_biome = vim.fn.filereadable(root .. '/biome.json') == 1 or
+                      vim.fn.filereadable(root .. '/biome.jsonc') == 1
+        end
+
+        -- Biome設定があればBiomeのみ、なければPrettierのみ
+        local formatters = { "prettier" }
+        if has_biome then
+          formatters = { "biome" }
+        end
+
+        return {
+          timeout_ms = 500,
+          lsp_fallback = true,
+          formatters = formatters,
+        }
+      end,
     })
   end,
 }
