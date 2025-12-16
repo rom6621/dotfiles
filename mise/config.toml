@@ -7,6 +7,7 @@ node = "24.9.0"
 go = "1.25.4"
 python = "3.12"
 terraform = "latest"
+bun = "latest"
 
 # LSP servers
 "npm:@vtsls/language-server" = "latest"
