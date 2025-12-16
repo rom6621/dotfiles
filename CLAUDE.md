@@ -132,11 +132,3 @@ ln -s ~/dotfiles/tmux ~/.config
 - [ ] Terraform LSPの設定を追加
 - [ ] 不要なHomebrewパッケージの整理
 ```
-
-## 最近のコンテキスト
-
-このリポジトリは最近再編成されました：
-- LSP設定を分散した場所から`config/lsp.lua`に統合
-- nvm/homebrewからmiseへのツール管理移行を進行中
-- Neovim 0.11へアップグレードし新しいLSP APIを採用
-- TmuxコピーモードとmacOSクリップボードを統合
