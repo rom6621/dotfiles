@@ -13,5 +13,8 @@ bun = "latest"
 "npm:@vtsls/language-server" = "latest"
 lua-language-server = "latest"
 
+# Development tools
+"npm:@devcontainers/cli" = "latest"
+
 [settings]
 experimental = true
