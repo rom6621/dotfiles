@@ -40,3 +40,10 @@ mise install
 
 7. tmuxを開き`prefix`+`I`でプラグインをインストール
 
+## TODO
+
+- [ ] lua-language-serverをmiseでインストール（現在GitHub rate limit）
+- [ ] Terraform LSPの設定を追加
+- [ ] mise管理ツールをCLAUDE.mdに反映
+- [ ] 不要なHomebrewパッケージの整理
+
