@@ -2,8 +2,8 @@
 
 ## インストールが必須なもの
 
-- ZInit
-- Volta
+- Zinit
+- mise
 
 ## 初期化方法
 
@@ -28,5 +28,15 @@ ln -s ~/dotfiles/nvim ~/.config
 ln -s ~/dotfiles/tmux ~/.config
 ```
 
-5. tmuxを開き`prefix`+`I`でプラグインをインストール
+5. `mise`のシンボリックリンクを貼る
+```bash
+ln -s ~/dotfiles/mise ~/.config
+```
+
+6. miseでツールをインストール
+```bash
+mise install
+```
+
+7. tmuxを開き`prefix`+`I`でプラグインをインストール
 

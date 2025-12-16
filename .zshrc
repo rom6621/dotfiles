@@ -4,13 +4,8 @@ export LC_CTYPE=ja_JP.UTF-8
 # vimコマンドでneovimが起動するようエイリアスを設定
 alias vim="nvim"
 
-# Golang
-export GOROOT=$(go1.25.1 env GOROOT)
-export PATH=$GOROOT/bin:$PATH
-
-# Node.js
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# Tool version management is handled by mise
+# See ~/.config/mise/config.toml
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
@@ -59,5 +54,4 @@ zinit light zsh-users/zsh-completions
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(mise activate zsh)"

@@ -1,0 +1,16 @@
+# mise configuration for development tools
+# https://mise.jdx.dev/configuration.html
+
+[tools]
+# Language runtimes
+node = "24.9.0"
+go = "1.25.4"
+python = "3.12"
+terraform = "latest"
+
+# LSP servers
+"npm:@vtsls/language-server" = "latest"
+lua-language-server = "latest"
+
+[settings]
+experimental = true
