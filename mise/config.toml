@@ -12,9 +12,14 @@ bun = "latest"
 # LSP servers
 "npm:@vtsls/language-server" = "latest"
 lua-language-server = "latest"
+"npm:@biomejs/biome" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
 
 # Development tools
 "npm:@devcontainers/cli" = "latest"
+
+# Formatters
+"npm:prettier" = "latest"
 
 [settings]
 experimental = true

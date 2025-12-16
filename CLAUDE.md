@@ -29,7 +29,14 @@ Neovim 0.11以降の**新しいLSP API** (`vim.lsp.config()`と`vim.lsp.enable()
 
 現在設定済みのLSPサーバー：
 - `lua_ls` - Lua（vimグローバル対応）
-- `vtsls` - TypeScript/JavaScript（保存時にimport整理）
+- `vtsls` - TypeScript/JavaScript（型チェック、保存時にimport整理）
+- `biome` - JavaScript/TypeScript（Biomeプロジェクト用リント＋フォーマット）
+- `eslint` - JavaScript/TypeScript（ESLint+Prettier構成用リント）
+
+フォーマット：
+- `conform.nvim` - プロジェクトに応じて自動切り替え
+  - Biomeプロジェクト（biome.json有）: Biomeでフォーマット
+  - ESLint+Prettierプロジェクト: Prettierでフォーマット
 
 ### シェル設定
 

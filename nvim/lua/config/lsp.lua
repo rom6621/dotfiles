@@ -41,8 +41,22 @@ vim.lsp.config('vtsls', {
   },
 })
 
+-- Biome LSP
+vim.lsp.config('biome', {
+  cmd = { 'biome', 'lsp-proxy' },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json', 'jsonc' },
+  root_markers = { 'biome.json', 'biome.jsonc' },
+})
+
+-- ESLint LSP
+vim.lsp.config('eslint', {
+  cmd = { 'vscode-eslint-language-server', '--stdio' },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  root_markers = { '.eslintrc', '.eslintrc.js', '.eslintrc.json', 'eslint.config.js', 'eslint.config.mjs' },
+})
+
 -- LSPを有効化
-vim.lsp.enable({ 'lua_ls', 'vtsls' })
+vim.lsp.enable({ 'lua_ls', 'vtsls', 'biome', 'eslint' })
 
 -- LSP Attach時の設定
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -96,18 +110,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
     end
 
-    -- Auto-format ("lint") on save.
-    -- Usually not nedded if server supports "textDocument/willSaveWaitUntil".
-    if not client:supports_method("textDocument/willSaveWaitUntil")
-        and client:supports_method("textDocument/formatting") then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
-        buffer = args.buf,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
-        end,
-      })
-    end
+    -- Note: フォーマットはconform.nvimに任せる
 
     if client:supports_method("textDocument/inlineCompletion") then
       vim.lsp.inline_completion.enable(true, { bufnr = buf })
