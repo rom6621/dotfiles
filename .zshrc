@@ -57,3 +57,9 @@ fi
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then
     source '/usr/local/google-cloud-sdk/completion.zsh.inc'
 fi
+
+# ============================================================================
+# Local Configuration
+# ============================================================================
+# ローカル設定の読み込み（シークレット情報など、gitで管理しない）
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

@@ -24,4 +24,12 @@ cd dotfiles
 go run install.go
 ```
 
-3. ターミナルを再起動または`source ~/.zshrc`を実行
+3. （オプション）ローカル設定ファイルを作成
+
+```bash
+cp ~/dotfiles/.zshrc.local.example ~/.zshrc.local
+chmod 600 ~/.zshrc.local
+# GITHUB_TOKENなど、必要に応じて編集
+```
+
+4. ターミナルを再起動または`source ~/.zshrc`を実行

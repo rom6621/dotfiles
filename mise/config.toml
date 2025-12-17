@@ -18,6 +18,9 @@ lua-language-server = "latest"
 # Development tools
 "npm:@devcontainers/cli" = "latest"
 
+# CLI tools
+aws-cli = "latest"
+
 # Formatters
 "npm:prettier" = "latest"
 

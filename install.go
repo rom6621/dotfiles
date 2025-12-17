@@ -86,6 +86,18 @@ func main() {
 		installPlugins(tpmDir)
 	}
 
+	// .zshrc.local のセットアップ案内
+	fmt.Println("\n💡 オプション: ローカル設定ファイル")
+	zshrcLocal := filepath.Join(homeDir, ".zshrc.local")
+	if _, err := os.Stat(zshrcLocal); os.IsNotExist(err) {
+		fmt.Println("GitHub Tokenなどの秘密情報を設定する場合:")
+		fmt.Printf("  cp %s %s\n", filepath.Join(dotfilesDir, ".zshrc.local.example"), zshrcLocal)
+		fmt.Printf("  chmod 600 %s\n", zshrcLocal)
+		fmt.Println("  # エディタで編集してGITHUB_TOKENなどを設定")
+	} else {
+		fmt.Println("✅ ~/.zshrc.local が既に存在します")
+	}
+
 	fmt.Println("\n🎉 セットアップ完了！")
 	fmt.Println("\n次のステップ:")
 	fmt.Println("1. ターミナルを再起動するか、`source ~/.zshrc` を実行")
