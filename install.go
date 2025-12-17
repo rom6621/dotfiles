@@ -68,10 +68,27 @@ func main() {
 		fmt.Println("✅ Zinit がインストール済み")
 	}
 
+	// TPM (Tmux Plugin Manager) のインストール
+	fmt.Println("\n🔌 TPM (Tmux Plugin Manager) のセットアップ...")
+	tpmDir := filepath.Join(configDir, "tmux/plugins/tpm")
+	if _, err := os.Stat(tpmDir); os.IsNotExist(err) {
+		fmt.Println("TPM をクローンしています...")
+		if !commandExists("git") {
+			fmt.Println("⚠️  git がインストールされていません")
+		} else if err := runCommand("git", "clone", "https://github.com/tmux-plugins/tpm", tpmDir); err != nil {
+			fmt.Printf("⚠️  TPM のクローンに失敗: %v\n", err)
+		} else {
+			fmt.Println("✅ TPM をインストールしました")
+			installPlugins(tpmDir)
+		}
+	} else {
+		fmt.Println("✅ TPM がインストール済み")
+		installPlugins(tpmDir)
+	}
+
 	fmt.Println("\n🎉 セットアップ完了！")
 	fmt.Println("\n次のステップ:")
 	fmt.Println("1. ターミナルを再起動するか、`source ~/.zshrc` を実行")
-	fmt.Println("2. tmux を開いて `Prefix + I` でプラグインをインストール")
 }
 
 func createSymlink(src, dst string) error {
@@ -99,6 +116,19 @@ func runCommand(name string, args ...string) error {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd.Run()
+}
+
+func installPlugins(tpmDir string) {
+	installScript := filepath.Join(tpmDir, "bin/install_plugins")
+	if _, err := os.Stat(installScript); err == nil {
+		fmt.Println("プラグインをインストールしています...")
+		if err := runCommand(installScript); err != nil {
+			fmt.Printf("⚠️  プラグインインストールに失敗: %v\n", err)
+			fmt.Println("   tmux 起動後に `Prefix + I` で手動インストールしてください")
+		} else {
+			fmt.Println("✅ tmux プラグインのインストール完了")
+		}
+	}
 }
 
 func fatal(format string, args ...interface{}) {

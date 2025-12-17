@@ -25,5 +25,3 @@ go run install.go
 ```
 
 3. ターミナルを再起動または`source ~/.zshrc`を実行
-
-4. tmuxを開き`Prefix + I`でプラグインをインストール
