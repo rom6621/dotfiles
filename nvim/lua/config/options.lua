@@ -10,7 +10,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 
 -- 折り返し設定
-opt.linebreak = false
+opt.wrap = false
 
 -- OSのクリップボードと連携
 opt.clipboard = "unnamedplus"
