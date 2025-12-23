@@ -6,6 +6,7 @@
 node = "24.9.0"
 go = "1.25.4"
 python = "3.12"
+uv = "latest"
 terraform = "latest"
 bun = "latest"
 
