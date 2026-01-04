@@ -20,6 +20,7 @@ lua-language-server = "latest"
 
 # CLI tools
 aws-cli = "latest"
+gcloud = "latest"
 
 # Formatters
 "npm:prettier" = "latest"
