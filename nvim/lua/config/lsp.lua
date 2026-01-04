@@ -55,8 +55,25 @@ vim.lsp.config('eslint', {
   root_markers = { '.eslintrc', '.eslintrc.js', '.eslintrc.json', 'eslint.config.js', 'eslint.config.mjs' },
 })
 
+-- Go LSP (gopls)
+vim.lsp.config('gopls', {
+  cmd = { 'gopls' },
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+  root_markers = { 'go.mod', 'go.work', '.git' },
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
+})
+
 -- LSPを有効化
-vim.lsp.enable({ 'lua_ls', 'vtsls', 'biome', 'eslint' })
+vim.lsp.enable({ 'lua_ls', 'vtsls', 'biome', 'eslint', 'gopls' })
 
 -- LSP Attach時の設定
 vim.api.nvim_create_autocmd("LspAttach", {
