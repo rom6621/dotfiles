@@ -1,0 +1,10 @@
+theme = Dracula
+
+font-family = "HackGen35 Console NF"
+font-size = 18
+
+window-width = 140
+window-height = 40
+
+macos-option-as-alt = true
+

@@ -31,6 +31,7 @@ func main() {
 	// シンボリックリンクの作成
 	symlinks := map[string]string{
 		".zshrc": filepath.Join(homeDir, ".zshrc"),
+		"ghostty": filepath.Join(configDir, "ghostty"),
 		"nvim":   filepath.Join(configDir, "nvim"),
 		"tmux":   filepath.Join(configDir, "tmux"),
 		"mise":   filepath.Join(configDir, "mise"),
