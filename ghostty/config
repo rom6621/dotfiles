@@ -8,4 +8,8 @@ window-height = 40
 
 macos-option-as-alt = true
 
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
 keybind = shift+enter=text:\n
