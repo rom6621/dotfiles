@@ -15,8 +15,20 @@ return {
         scss = { "prettier" },
         html = { "prettier" },
         markdown = { "prettier" },
+        go = {},  -- LSP (gopls) にフォーマットを任せる
       },
       format_on_save = function(bufnr)
+        local filetype = vim.bo[bufnr].filetype
+
+        -- GoファイルはLSP (gopls) にフォーマットを任せる
+        if filetype == "go" then
+          return {
+            timeout_ms = 500,
+            lsp_fallback = true,
+          }
+        end
+
+        -- JavaScript/TypeScript等: Biome/Prettierを使用
         -- プロジェクトルートでbiome.json/biome.jsoncを探す
         local root = vim.fs.root(bufnr, { 'biome.json', 'biome.jsonc', 'package.json', '.git' })
         local has_biome = false
