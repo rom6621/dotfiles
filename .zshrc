@@ -10,6 +10,7 @@ export LC_CTYPE=ja_JP.UTF-8
 alias vim="nvim"
 
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 # ============================================================================
 # Zinit - Plugin Manager
