@@ -25,6 +25,10 @@ aws-cli = "latest"
 gcloud = "latest"
 lazygit = "latest"
 
+# Git hooks & security
+gitleaks = "latest"
+lefthook = "latest"
+
 # Formatters
 "npm:prettier" = "latest"
 
