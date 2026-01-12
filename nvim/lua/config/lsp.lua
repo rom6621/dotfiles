@@ -102,6 +102,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         { buffer = buf, desc = "Rename symbol" })
     end
 
+    if client:supports_method("textDocument/references") then
+      vim.keymap.set("n", "gr", vim.lsp.buf.references,
+        { buffer = buf, desc = "Find references" })
+    end
+
     -- Diagnostics (エラー・警告の表示)
     vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float,
       { buffer = buf, desc = "Show diagnostic" })
