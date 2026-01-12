@@ -23,9 +23,11 @@ lua-language-server = "latest"
 task = "latest"
 
 # CLI tools
+"1password-cli" = "latest"
+tree-sitter = "latest"
 atlas = "latest"
 aws-cli = "latest"
-aws-vault = "latest"
+"aqua:99designs/aws-vault" = "latest"
 gcloud = "latest"
 lazygit = "latest"
 gh = "latest"
