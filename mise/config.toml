@@ -9,6 +9,7 @@ python = "3.12"
 uv = "latest"
 terraform = "latest"
 bun = "latest"
+pnpm = "latest"
 
 # LSP servers
 "npm:@vtsls/language-server" = "latest"
@@ -19,11 +20,14 @@ lua-language-server = "latest"
 
 # Development tools
 "npm:@devcontainers/cli" = "latest"
+task = "latest"
 
 # CLI tools
 aws-cli = "latest"
 gcloud = "latest"
 lazygit = "latest"
+gh = "latest"
+jq = "latest"
 
 # Git hooks & security
 gitleaks = "latest"
