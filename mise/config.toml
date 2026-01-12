@@ -20,6 +20,7 @@ lua-language-server = "latest"
 
 # Development tools
 "npm:@devcontainers/cli" = "latest"
+"npm:wrangler" = "latest"
 task = "latest"
 
 # CLI tools
