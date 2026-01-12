@@ -44,6 +44,11 @@ zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
 # ============================================================================
+# Homebrew keg-only packages
+# ============================================================================
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
+# ============================================================================
 # Tool Version Management
 # ============================================================================
 # mise manages: Node.js, Go, Python, Terraform, LSP servers
