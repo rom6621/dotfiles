@@ -15,6 +15,7 @@ func main() {
 
 	dotfilesDir := filepath.Join(homeDir, "dotfiles")
 	configDir := filepath.Join(homeDir, ".config")
+	claudeDir := filepath.Join(homeDir, ".claude")
 
 	fmt.Println("🔧 Dotfiles セットアップを開始します...")
 
@@ -28,13 +29,20 @@ func main() {
 		fatal("~/.configディレクトリの作成に失敗: %v", err)
 	}
 
+	// ~/.claudeディレクトリの作成
+	if err := os.MkdirAll(claudeDir, 0755); err != nil {
+		fatal("~/.claudeディレクトリの作成に失敗: %v", err)
+	}
+
 	// シンボリックリンクの作成
 	symlinks := map[string]string{
-		".zshrc": filepath.Join(homeDir, ".zshrc"),
-		"ghostty": filepath.Join(configDir, "ghostty"),
-		"nvim":   filepath.Join(configDir, "nvim"),
-		"tmux":   filepath.Join(configDir, "tmux"),
-		"mise":   filepath.Join(configDir, "mise"),
+		".zshrc":               filepath.Join(homeDir, ".zshrc"),
+		"ghostty":              filepath.Join(configDir, "ghostty"),
+		"nvim":                 filepath.Join(configDir, "nvim"),
+		"tmux":                 filepath.Join(configDir, "tmux"),
+		"mise":                 filepath.Join(configDir, "mise"),
+		"claude/CLAUDE.md":     filepath.Join(claudeDir, "CLAUDE.md"),
+		"claude/settings.json": filepath.Join(claudeDir, "settings.json"),
 	}
 
 	for src, dst := range symlinks {
