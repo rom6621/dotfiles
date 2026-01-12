@@ -23,7 +23,9 @@ lua-language-server = "latest"
 task = "latest"
 
 # CLI tools
+atlas = "latest"
 aws-cli = "latest"
+aws-vault = "latest"
 gcloud = "latest"
 lazygit = "latest"
 gh = "latest"
