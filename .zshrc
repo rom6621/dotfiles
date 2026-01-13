@@ -40,6 +40,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 
+autoload -Uz compinit && compinit
+
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
