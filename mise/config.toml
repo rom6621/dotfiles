@@ -21,6 +21,9 @@ lua-language-server = "latest"
 # Development tools
 "npm:@devcontainers/cli" = "latest"
 "npm:wrangler" = "latest"
+"go:github.com/air-verse/air" = "latest"
+"go:github.com/joho/godotenv/cmd/godotenv" = "latest"
+"go:github.com/go-delve/delve/cmd/dlv" = "latest"
 task = "latest"
 
 # CLI tools
