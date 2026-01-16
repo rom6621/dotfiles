@@ -34,6 +34,12 @@ func main() {
 		fatal("~/.claudeディレクトリの作成に失敗: %v", err)
 	}
 
+	// ~/.sshディレクトリの作成
+	sshDir := filepath.Join(homeDir, ".ssh")
+	if err := os.MkdirAll(sshDir, 0700); err != nil {
+		fatal("~/.sshディレクトリの作成に失敗: %v", err)
+	}
+
 	// シンボリックリンクの作成
 	symlinks := map[string]string{
 		".zshrc":               filepath.Join(homeDir, ".zshrc"),
@@ -43,6 +49,7 @@ func main() {
 		"mise":                 filepath.Join(configDir, "mise"),
 		"claude/CLAUDE.md":     filepath.Join(claudeDir, "CLAUDE.md"),
 		"claude/settings.json": filepath.Join(claudeDir, "settings.json"),
+		"ssh/config":           filepath.Join(sshDir, "config"),
 	}
 
 	for src, dst := range symlinks {
