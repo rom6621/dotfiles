@@ -72,8 +72,24 @@ vim.lsp.config('gopls', {
   },
 })
 
+-- Python LSP (pyright)
+vim.lsp.config('pyright', {
+  cmd = { 'pyright-langserver', '--stdio' },
+  filetypes = { 'python' },
+  root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'pyrightconfig.json', '.git' },
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = 'openFilesOnly',
+      },
+    },
+  },
+})
+
 -- LSPを有効化
-vim.lsp.enable({ 'lua_ls', 'vtsls', 'biome', 'eslint', 'gopls' })
+vim.lsp.enable({ 'lua_ls', 'vtsls', 'biome', 'eslint', 'gopls', 'pyright' })
 
 -- LSP Attach時の設定
 vim.api.nvim_create_autocmd("LspAttach", {

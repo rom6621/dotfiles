@@ -13,6 +13,7 @@ return {
 			"tsx",
 			"go",
 			"terraform",
+			"python",
 		},
 		auto_install = true,
 	},
