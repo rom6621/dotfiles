@@ -94,8 +94,15 @@ vim.lsp.config('pyright', {
   end,
 })
 
+-- Python Linter/Formatter (ruff)
+vim.lsp.config('ruff', {
+  cmd = { 'ruff', 'server' },
+  filetypes = { 'python' },
+  root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', 'setup.py', '.git' },
+})
+
 -- LSPを有効化
-vim.lsp.enable({ 'lua_ls', 'vtsls', 'biome', 'eslint', 'gopls', 'pyright' })
+vim.lsp.enable({ 'lua_ls', 'vtsls', 'biome', 'eslint', 'gopls', 'pyright', 'ruff' })
 
 -- LSP Attach時の設定
 vim.api.nvim_create_autocmd("LspAttach", {

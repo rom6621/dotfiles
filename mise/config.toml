@@ -18,6 +18,7 @@ lua-language-server = "latest"
 "npm:vscode-langservers-extracted" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:pyright" = "latest"
+ruff = "latest"
 
 # Development tools
 "npm:@devcontainers/cli" = "latest"
