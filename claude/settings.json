@@ -24,5 +24,6 @@
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true
-  }
+  },
+  "language": "Japanese"
 }
