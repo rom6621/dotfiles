@@ -47,6 +47,7 @@ lefthook = "latest"
 
 # Formatters
 "npm:prettier" = "latest"
+pulumi = "latest"
 
 [settings]
 experimental = true
