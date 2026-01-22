@@ -27,7 +27,7 @@ ruff = "latest"
 "go:github.com/joho/godotenv/cmd/godotenv" = "latest"
 "go:github.com/go-delve/delve/cmd/dlv" = "latest"
 "go:github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen" = "latest"
-sqlc = "latest"
+"aqua:sqlc-dev/sqlc" = "latest"
 task = "latest"
 
 # CLI tools
@@ -47,7 +47,7 @@ lefthook = "latest"
 
 # Formatters
 "npm:prettier" = "latest"
-pulumi = "latest"
+"aqua:pulumi/pulumi" = "latest"
 
 [settings]
 experimental = true
