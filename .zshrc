@@ -62,3 +62,7 @@ eval "$(mise activate zsh)"
 # ============================================================================
 # ローカル設定の読み込み（シークレット情報など、gitで管理しない）
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/na-satou/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

@@ -48,6 +48,9 @@ lefthook = "latest"
 # Formatters
 "npm:prettier" = "latest"
 "aqua:pulumi/pulumi" = "latest"
+"npm:@mkkellogg/gaussian-splats-3d" = "latest"
+"npm:@playcanvas/splat-transform" = "latest"
+"pipx:git+https://github.com/francescofugazzi/3dgsconverter.git" = "latest"
 
 [settings]
 experimental = true
