@@ -72,11 +72,24 @@ vim.lsp.config('gopls', {
   },
 })
 
+-- Python: .venvを親ディレクトリも含めて探す（モノレポ対応）
+local function find_venv_dir(start_dir)
+  local dir = start_dir
+  while dir and dir ~= '/' do
+    local venv_python = dir .. '/.venv/bin/python'
+    if vim.fn.filereadable(venv_python) == 1 then
+      return dir
+    end
+    dir = vim.fn.fnamemodify(dir, ':h')
+  end
+  return nil
+end
+
 -- Python LSP (pyright)
 vim.lsp.config('pyright', {
   cmd = { 'pyright-langserver', '--stdio' },
   filetypes = { 'python' },
-  root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'pyrightconfig.json', '.git' },
+  root_markers = { 'uv.lock', 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'pyrightconfig.json', '.git' },
   settings = {
     python = {
       analysis = {
@@ -87,9 +100,11 @@ vim.lsp.config('pyright', {
     },
   },
   before_init = function(_, config)
-    local venv_python = config.root_dir .. '/.venv/bin/python'
-    if vim.fn.filereadable(venv_python) == 1 then
-      config.settings.python.pythonPath = venv_python
+    local venv_root = find_venv_dir(config.root_dir)
+    if venv_root then
+      config.settings.python.pythonPath = venv_root .. '/.venv/bin/python'
+      config.settings.python.venvPath = venv_root
+      config.settings.python.venv = '.venv'
     end
   end,
 })
