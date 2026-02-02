@@ -40,7 +40,13 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 
-autoload -Uz compinit && compinit
+# compinit with cache (regenerate once per day)
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C  # skip security check, use cache
+fi
 
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
@@ -55,7 +61,8 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 # ============================================================================
 # mise manages: Node.js, Go, Python, Terraform, LSP servers
 # Configuration: ~/.config/mise/config.toml
-eval "$(mise activate zsh)"
+# Note: --shims is faster than hook mode (no overhead on cd)
+eval "$(mise activate zsh --shims)"
 
 # ============================================================================
 # Local Configuration
