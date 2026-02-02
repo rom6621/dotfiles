@@ -49,6 +49,7 @@ lefthook = "latest"
 "npm:prettier" = "latest"
 "aqua:pulumi/pulumi" = "latest"
 yarn = "latest"
+zellij = "latest"
 
 [settings]
 experimental = true
