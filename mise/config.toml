@@ -50,6 +50,7 @@ lefthook = "latest"
 "aqua:pulumi/pulumi" = "latest"
 yarn = "latest"
 zellij = "latest"
+ecspresso = "latest"
 
 [settings]
 experimental = true
