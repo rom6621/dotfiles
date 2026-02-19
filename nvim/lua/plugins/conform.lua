@@ -16,6 +16,7 @@ return {
         html = { "prettier" },
         markdown = { "prettier" },
         go = {},  -- LSP (gopls) にフォーマットを任せる
+        swift = { "swift_format" },
       },
       format_on_save = function(bufnr)
         local filetype = vim.bo[bufnr].filetype

@@ -14,6 +14,7 @@ return {
 			"go",
 			"terraform",
 			"python",
+			"swift",
 		},
 		auto_install = true,
 	},

@@ -116,8 +116,22 @@ vim.lsp.config('ruff', {
   root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', 'setup.py', '.git' },
 })
 
+-- Swift LSP (sourcekit-lsp)
+vim.lsp.config('sourcekit', {
+  cmd = { 'sourcekit-lsp' },
+  filetypes = { 'swift', 'objc', 'objcpp' },
+  root_markers = { 'Package.swift', '*.xcodeproj', '*.xcworkspace', '.git' },
+  capabilities = {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  },
+})
+
 -- LSPを有効化
-vim.lsp.enable({ 'lua_ls', 'vtsls', 'biome', 'eslint', 'gopls', 'pyright', 'ruff' })
+vim.lsp.enable({ 'lua_ls', 'vtsls', 'biome', 'eslint', 'gopls', 'pyright', 'ruff', 'sourcekit' })
 
 -- LSP Attach時の設定
 vim.api.nvim_create_autocmd("LspAttach", {
