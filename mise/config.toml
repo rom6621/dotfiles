@@ -51,6 +51,8 @@ lefthook = "latest"
 yarn = "latest"
 zellij = "latest"
 ecspresso = "latest"
+xcodegen = "latest"
+golangci-lint = "v2.10.1"
 
 [settings]
 experimental = true
