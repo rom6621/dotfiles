@@ -25,5 +25,10 @@
     "gopls-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true
   },
-  "language": "Japanese"
+  "language": "Japanese",
+  "permissions": {
+    "allow": [
+      "mcp__pencil"
+    ]
+  }
 }
